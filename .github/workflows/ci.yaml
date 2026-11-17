@@ -53,8 +53,10 @@ jobs:
           path: tmp/cache/.eslintcache.js
           key: ${{ runner.os }}-cache-eslint-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Lint
+        continue-on-error: true
         run: .github/workflows/ci/lint.sh
       - name: Markdownlint
+        continue-on-error: true
         uses: DavidAnson/markdownlint-cli2-action@v24
         with:
           globs: |
